@@ -14,8 +14,12 @@ export default function Projects() {
         <div className="projects__grid">
           {projects.map((project) => (
             <article className="project-card reveal" key={project.id}>
-              <div className="project-card__image" aria-hidden="true">
-                <span>{project.title}</span>
+              <div className="project-card__image" aria-hidden={project.imageUrl ? "false" : "true"}>
+                {project.imageUrl ? (
+                  <img src={project.imageUrl} alt={`${project.title} preview`} />
+                ) : (
+                  <span>{project.title}</span>
+                )}
               </div>
 
               <div className="project-card__body">
